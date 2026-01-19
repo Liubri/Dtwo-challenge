@@ -1,6 +1,6 @@
 # Settings Management System
 
-A full-stack application for managing arbitrary JSON configuration data. Built with a Node.js/Express backend, a React/Vite/TypeScript frontend, and Supabase for database persistence.
+A full-stack application for managing arbitrary JSON configuration data. Built with a Node.js/Express backend, a React frontend, and Supabase for database persistence.
 
 ## Features
 
