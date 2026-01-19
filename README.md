@@ -14,16 +14,7 @@ A full-stack application for managing arbitrary JSON configuration data. Built w
 
 ## Getting Started
 
-### 1. Environment Configuration
-The backend requires connection strings for Supabase. Although defaults are provided in the `docker-compose.yml`, you can customize them in `backend/.env`:
-
-```env
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_anon_key
-PORT=3000
-```
-
-### 2. Build and Run with Docker
+### 1. Build and Run with Docker
 In the root directory of the project, run:
 
 ```bash
