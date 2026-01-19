@@ -1,0 +1,21 @@
+# Node
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+
+# Vite
+.vite/
+
+# OS
+.DS_Store
+
+# Logs
+*.log

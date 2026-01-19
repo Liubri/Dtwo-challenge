@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SUPABASE_URL=https://gycjqilqnyqjlukiryxb.supabase.co
+      - SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5Y2pxaWxxbnlxamx1a2lyeXhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg3ODI1NjQsImV4cCI6MjA4NDM1ODU2NH0.Q71GXO7BaGQXRbTTDfp2EMnrQb-pBG4_8OOfzkfgIKA
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    depends_on:
+      - backend
+    restart: always
