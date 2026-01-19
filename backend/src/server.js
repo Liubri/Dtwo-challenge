@@ -44,8 +44,13 @@ app.post('/settings', async (req, res) => {
 // Read All (GET /settings) - Paged
 app.get('/settings', async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const page = parseInt(req.query.page ?? 1);
+    const limit = parseInt(req.query.limit ?? 10);
+
+    if (page < 1 || limit < 1) {
+      return res.status(400).json({ error: 'Page and limit must be positive integers' });
+    }
+
     const offset = (page - 1) * limit;
 
     const { data, count, error } = await supabase
@@ -64,7 +69,7 @@ app.get('/settings', async (req, res) => {
       totalPages: Math.ceil(count / limit)
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Page out of bounds" });
   }
 });
 

@@ -28,22 +28,31 @@ docker-compose up --build
 
 ## Testing
 
-### Automated API Testing
-You can verify the backend CRUD operations using the provided test script. Ensure the containers are running, then execute:
+### Backend Unit Tests
+These tests use the built-in Node.js test runner to verify API logic directly.
 
 ```bash
-# Make the script executable
-chmod +x test_api.sh
+cd backend
 
-# Run the tests
-./test_api.sh
+# Run server
+node src/server.js
+
+# Run all tests
+node --test 
 ```
-This script will:
-1. Create a setting.
-2. Retrieve the list (checking pagination).
-3. Retrieve the specific setting by UID.
-4. Update the setting.
-5. Delete the setting.
+
+### Frontend UI Tests (E2E)
+We use [Playwright](https://playwright.dev/) for end-to-end testing of the frontend.
+
+```bash
+cd frontend
+
+# Using pnpm
+pnpm test:ui
+
+# Or using npm
+npm run test:ui
+```
 
 ### Manual UI Testing
 1. Open [http://localhost:8080](http://localhost:8080).
